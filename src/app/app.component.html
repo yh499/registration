@@ -1,0 +1,58 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<h1>Registration</h1>
+<h2>Account Information</h2>
+<h3>{{ThanksMessage}}</h3>
+
+
+<form (submit)="onSubmit()" name = "myForm" #myForm="ngForm">
+  <div id="form">
+  First name:
+  <input type="text" name="firstname" required minlength="4" maxlength="30"  [(ngModel)]="user.firstname" #firstname ="ngModel" placeholder="First name">
+  <div class="errorMessage" *ngIf="!firstname.valid">First name required</div>
+  <br>
+  Last name:
+  <input type="text" name="lastname" required minlength="4" maxlength="30" [(ngModel)]="user.lastname" #lastname ="ngModel" placeholder="Last name">
+  <div class="errorMessage" *ngIf="!lastname.valid">Last name required</div>
+  <br>
+  Email:
+  <input type="text" name="email" required minlength="4" maxlength="30" [(ngModel)]="user.email" #email ="ngModel" placeholder="Email">
+  <div class="errorMessage" *ngIf="!email.valid">Email required</div>
+  <br>
+  Password:
+  <input type="password" name="password" required  minlength="8" maxlength="30" [(ngModel)]="user.password" pattern="^([a-zA-Z0-9]{8,15})$" #password ="ngModel" placeholder="Password">
+  <div class="errorMessage" *ngIf="!password.valid">Password at least 8 character. (Upper case, lower case and number)</div>
+  <br>
+  Password confirm:
+  <input type="password" name="password_confirm" required  minlength="8" maxlength="30" [(ngModel)]="user.password_confirm" pattern="^([a-zA-Z0-9]{8,15})$" #password_confirm ="ngModel" placeholder="Password_confirm">
+  <div class="errorMessage" *ngIf="!password_confirm.valid">Password needs to be matched</div>
+  <br>
+  Street Address:
+  <input type="text" name="address" required  minlength="4" maxlength="30" [(ngModel)]="user.address" #address ="ngModel" placeholder="Address">
+  <div class="errorMessage" *ngIf="!address.valid">Address required</div>
+  <br>
+  Unit/APT#:
+  <input type="text" name="unit" [(ngModel)]="user.unit" #unit ="ngModel" placeholder="Unit">
+  <br>
+  City:
+  <input type="text" name="city" required minlength="2" maxlength="30" [(ngModel)]="user.city" #city ="ngModel" placeholder="City">
+  <div class="errorMessage" *ngIf="!city.valid">City required</div>
+  <br>
+  State:
+  <select class="errorMessage" name="state" [(ngModel)]="user.state" #state ="ngModel">
+    <option value="AZ">AZ</option>
+    <option value="HI">HI</option>
+    <option value="NY">NY</option>
+    <option value="CA">CA</option>
+  </select>
+  <div *ngIf="!state.valid"> state required</div>
+  <br>
+  I am feeling Hungry:
+  <input type="radio" name="lucky" required [(ngModel)]="user.lucky" #lucky= 'ngModel' value="yes"> Yes
+  <input type="radio" name="lucky" required [(ngModel)]="user.lucky" #lucky= 'ngModel' value="no"> No
+  <div *ngIf="!lucky.valid"> Please Select!</div>
+	<br><br>
+  </div>
+  <br>
+  <button type="submit" [disabled]="!myForm.form.valid">Submit</button>
+</form> 

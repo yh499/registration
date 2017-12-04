@@ -1,0 +1,19 @@
+#btn {
+    border: 1px solid black;
+    width: 1220px; 
+    font-size: 25px;
+}
+#form {
+    width: 1180px;
+    border: 1px solid black;
+    height: 550px; 
+    padding: 20px; 
+    font-size: 20px;
+
+}
+
+.errorMessage {
+    font-size: 15px; 
+    color: red;
+}
+
